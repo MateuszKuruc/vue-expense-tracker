@@ -76,5 +76,7 @@ const deleteTransaction = (id) => {
   transactions.value = transactions.value.filter(
     (transaction) => transaction.id !== id
   );
+
+  toast.success("Transaction deleted successfully");
 };
 </script>
