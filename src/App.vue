@@ -1,10 +1,10 @@
 <template>
   <Header />
   <div class="container">
-    <Balance :total="total" />
+    <Balance :total="+total" />
     <IncomeExpenses :income="+income" :expenses="-expenses" />
     <TransactionList :transactions="transactions" />
-    <AddTransaction />
+    <AddTransaction @transactionSubmitted="handleTransactionSubmitted" />
   </div>
 </template>
 
@@ -52,4 +52,13 @@ const expenses = computed(() => {
     }, 0)
     .toFixed(2);
 });
+
+const handleTransactionSubmitted = (transactionData) => {
+  const newTransaction = {
+    id: transactions.value.length + 1,
+    text: transactionData.text,
+    amount: transactionData.amount,
+  };
+  transactions.value.push(newTransaction);
+};
 </script>
