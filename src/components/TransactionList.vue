@@ -9,20 +9,15 @@
       {{ transaction.text }}<span>${{ transaction.amount }}</span
       ><button class="delete-btn">x</button>
     </li>
-    <!-- <li class="minus">
-      Cash <span>-$400</span><button class="delete-btn">x</button>
-    </li>
-    <li class="plus">
-      Paycheck <span>$800</span><button class="delete-btn">x</button>
-    </li> -->
   </ul>
 </template>
 
 <script setup>
-const transactions = [
-  { id: 1, text: "Computer", amount: -199.99 },
-  { id: 2, text: "Salary", amount: 299.99 },
-  { id: 3, text: "Tea", amount: -4.5 },
-  { id: 4, text: "Camera", amount: 150 },
-];
+import { defineProps } from "vue";
+const props = defineProps({
+  transactions: {
+    type: Array,
+    required: true,
+  },
+});
 </script>
